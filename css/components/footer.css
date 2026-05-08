@@ -1,0 +1,147 @@
+/* ================================================
+   FOOTER — PrimeCuts Barbershop
+================================================ */
+
+.footer {
+  background-color: var(--clr-bg-primary);
+  color:            var(--clr-text-secondary);
+  border-top:       1px solid var(--clr-border);
+}
+
+/* ------------------------------------------------
+   TOP SECTION
+------------------------------------------------ */
+.footer__top {
+  display:               grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap:                   var(--space-16);
+  padding:               var(--space-20) 0;
+}
+
+/* Coluna de marca */
+.footer__brand {
+  max-width: 320px;
+}
+
+.footer__brand img {
+  height:    34px;
+  margin-bottom: var(--space-4);
+}
+
+.footer__tagline {
+  font-size:   var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  margin-bottom: var(--space-6);
+}
+
+/* Redes sociais */
+.footer__social {
+  display: flex;
+  gap:     var(--space-4);
+}
+
+.footer__social a {
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  width:            40px;
+  height:           40px;
+  border:           1px solid var(--clr-border);
+  border-radius:    var(--radius-sm);
+  transition:       all var(--transition-base);
+}
+
+.footer__social a:hover {
+  border-color: var(--clr-gold);
+  background-color: var(--clr-gold-muted);
+}
+
+/* Colunas de informação */
+.footer__col-title {
+  font-family:   var(--font-body);
+  font-size:     var(--fs-sm);
+  font-weight:   var(--fw-semibold);
+  color:         var(--clr-text-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+
+.footer__address,
+.footer__contact {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+}
+
+.footer__contact ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer__contact a {
+  transition: color var(--transition-base);
+}
+
+.footer__contact a:hover {
+  color: var(--clr-gold);
+}
+
+/* ------------------------------------------------
+   BOTTOM SECTION
+------------------------------------------------ */
+.footer__bottom {
+  display:          flex;
+  align-items:      center;
+  justify-content:  space-between;
+  padding:          var(--space-6) 0;
+  border-top:       1px solid var(--clr-border);
+  font-size:        var(--fs-xs);
+  color:            var(--clr-text-muted);
+}
+
+.footer__legal {
+  display: flex;
+  gap:     var(--space-6);
+}
+
+.footer__legal a {
+  transition: color var(--transition-base);
+}
+
+.footer__legal a:hover {
+  color: var(--clr-text-secondary);
+}
+
+/* ------------------------------------------------
+   RESPONSIVIDADE
+------------------------------------------------ */
+
+@media (max-width: 1024px) {
+  .footer__top {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__top {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
+  }
+
+  .footer__legal {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,122 @@
+/* ================================================
+   RESET — PrimeCuts Barbershop
+   Baseado no Modern CSS Reset (Andy Bell)
+   com adições próprias
+================================================ */
+
+/* Box model universal */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Evita overflow horizontal indesejado */
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  /* Melhora renderização de fonte no macOS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Respeita preferência de animação do usuário */
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Remove estilo padrão de listas quando têm role="list" */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Body base */
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+  text-rendering: optimizeSpeed;
+}
+
+/* Imagens e mídias responsivas por padrão */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Remove estilo padrão de inputs e herdam fonte */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  background: none;
+}
+
+/* Botões clicáveis */
+button {
+  cursor: pointer;
+}
+
+/* Links/botões com cursor apropriado */
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"] {
+  cursor: pointer;
+}
+
+/* Conteúdo que NÃO é botão/link */
+*:not(a):not(button):not([role="button"]):not(input[type="submit"]):not(input[type="button"]):not(label[for]) {
+  cursor: default;
+}
+
+/* (cursor para elementos específicos é definido em regras próprias nos componentes, sem alterar links padrão) */
+
+
+/* Remove decoração de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Parágrafos e headings não estouram o container */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Remove itálico padrão do address */
+address {
+  font-style: normal;
+}
+
+/* Tabelas sem collapse estranho */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

@@ -1,0 +1,144 @@
+/* ================================================
+   ABOUT / EXPERIÊNCIA — PrimeCuts Barbershop
+================================================ */
+
+.about {
+  background-color: var(--clr-bg-primary);
+  padding:          var(--section-padding);
+}
+
+/* ------------------------------------------------
+   CONTAINER PRINCIPAL
+------------------------------------------------ */
+.about__container {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   var(--space-16);
+  align-items:           center;
+}
+
+/* ------------------------------------------------
+   COLUNA DA IMAGEM
+------------------------------------------------ */
+.about__image-wrapper {
+  position:  relative;
+  max-width: 520px;
+  margin:    0 auto;
+}
+
+.about__image {
+  width:         100%;
+  height:        auto;
+  border-radius: var(--radius-lg);
+  box-shadow:    var(--shadow-lg);
+  object-fit:    cover;
+  aspect-ratio:  9 / 10;
+}
+
+/* Badge flutuante "10+ Anos" */
+.about__badge {
+  position:         absolute;
+  top:              32px;
+  right:            -24px;
+  background-color: var(--clr-gold);
+  color:            #0d0d0d;
+  padding:          var(--space-4) var(--space-6);
+  border-radius:    var(--radius-md);
+  box-shadow:       var(--shadow-gold);
+  text-align:       center;
+  z-index:          var(--z-raised);
+}
+
+.about__badge-number {
+  display:     block;
+  font-family: var(--font-heading);
+  font-size:   var(--fs-3xl);
+  font-weight: var(--fw-black);
+  line-height: 1;
+}
+
+.about__badge-label {
+  font-size:     var(--fs-xs);
+  font-weight:   var(--fw-semibold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------
+   COLUNA DE CONTEÚDO
+------------------------------------------------ */
+.about__content {
+  max-width: 520px;
+}
+
+.about__heading {
+  font-size:     var(--fs-3xl);
+  line-height:   var(--lh-tight);
+  margin-bottom: var(--space-6);
+  color:         var(--clr-text-primary);
+}
+
+.about__description {
+  font-size:     var(--fs-md);
+  margin-bottom: var(--space-8);
+}
+
+/* Lista de diferenciais */
+.about__features {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--space-4);
+  margin-bottom:  var(--space-8);
+}
+
+.about__feature {
+  display:     flex;
+  align-items: center;
+  gap:         var(--space-3);
+  font-size:   var(--fs-sm);
+  color:       var(--clr-text-secondary);
+}
+
+.about__feature-icon {
+  color:       var(--clr-gold);
+  font-size:   var(--fs-base);
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------------
+   RESPONSIVIDADE
+------------------------------------------------ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .about__container {
+    gap: var(--space-12);
+  }
+
+  .about__heading {
+    font-size: var(--fs-2xl);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .about__container {
+    grid-template-columns: 1fr;
+    gap:                   var(--space-10);
+  }
+
+  .about__image-wrapper {
+    max-width: 100%;
+    order:     -1; /* Imagem fica em cima */
+  }
+
+  .about__badge {
+    top:   24px;
+    right: 24px;
+    padding: var(--space-3) var(--space-5);
+  }
+
+  .about__badge-number {
+    font-size: var(--fs-2xl);
+  }
+}

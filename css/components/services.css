@@ -1,0 +1,166 @@
+/* ================================================
+   SERVICES — PrimeCuts Barbershop
+================================================ */
+
+.services {
+  background-color: var(--clr-bg-secondary);
+  padding:          var(--section-padding);
+}
+
+/* ------------------------------------------------
+   GRID
+------------------------------------------------ */
+.services__grid {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   var(--space-6);
+}
+
+/* ------------------------------------------------
+   CARD
+------------------------------------------------ */
+.service-card {
+  display:          flex;
+  flex-direction:   column;
+  background-color: var(--clr-bg-card);
+  border:           1px solid var(--clr-border);
+  border-radius:    var(--radius-md);
+  padding:          var(--space-8);
+  transition:       transform    var(--transition-base),
+                    border-color var(--transition-base),
+                    box-shadow   var(--transition-base);
+  /* Animação de entrada (scroll reveal) */
+  opacity:          0;
+  transform:        translateY(24px);
+}
+
+.service-card.is-visible {
+  opacity:   1;
+  transform: translateY(0);
+  transition: opacity    var(--transition-slow),
+              transform  var(--transition-slow),
+              border-color var(--transition-base),
+              box-shadow   var(--transition-base);
+}
+
+/* Stagger nos cards */
+.service-card:nth-child(1).is-visible { transition-delay: 0ms;   }
+.service-card:nth-child(2).is-visible { transition-delay: 120ms; }
+.service-card:nth-child(3).is-visible { transition-delay: 240ms; }
+
+.service-card:hover {
+  transform:    translateY(-6px);
+  border-color: var(--clr-border-gold);
+  box-shadow:   var(--shadow-gold);
+}
+
+/* ------------------------------------------------
+   ÍCONE
+------------------------------------------------ */
+.service-card__icon {
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  width:            48px;
+  height:           48px;
+  margin-bottom:    var(--space-6);
+  font-size:        var(--fs-2xl);
+  color:            var(--clr-gold);
+  background-color: var(--clr-gold-muted);
+  border:           1px solid var(--clr-border-gold);
+  border-radius:    var(--radius-sm);
+}
+
+/* ------------------------------------------------
+   TÍTULO
+------------------------------------------------ */
+.service-card__title {
+  font-family:   var(--font-heading);
+  font-size:     var(--fs-xl);
+  font-weight:   var(--fw-bold);
+  color:         var(--clr-text-primary);
+  margin-bottom: var(--space-3);
+}
+
+/* ------------------------------------------------
+   DESCRIÇÃO
+------------------------------------------------ */
+.service-card__description {
+  font-size:     var(--fs-sm);
+  line-height:   var(--lh-relaxed);
+  color:         var(--clr-text-secondary);
+  margin-bottom: var(--space-8);
+  flex:          1; /* empurra o footer pra baixo */
+}
+
+/* ------------------------------------------------
+   FOOTER (preço + CTA)
+------------------------------------------------ */
+.service-card__footer {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding-top:     var(--space-6);
+  border-top:      1px solid var(--clr-border);
+}
+
+.service-card__price {
+  font-family:   var(--font-heading);
+  font-size:     var(--fs-lg);
+  font-weight:   var(--fw-bold);
+  color:         var(--clr-gold);
+}
+
+.service-card__cta {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             var(--space-1);
+  font-size:       var(--fs-sm);
+  font-weight:     var(--fw-semibold);
+  color:           var(--clr-text-secondary);
+  transition:      color var(--transition-base),
+                   gap   var(--transition-base);
+}
+
+.service-card__cta span {
+  transition: transform var(--transition-base);
+}
+
+.service-card__cta:hover {
+  color: var(--clr-gold);
+}
+
+.service-card__cta:hover span {
+  transform: translateX(4px);
+}
+
+/* ------------------------------------------------
+   RESPONSIVIDADE
+------------------------------------------------ */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap:                   var(--space-5);
+  }
+
+  .service-card {
+    padding: var(--space-6);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .services__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    padding: var(--space-6);
+  }
+
+  .service-card__description {
+    margin-bottom: var(--space-6);
+  }
+}

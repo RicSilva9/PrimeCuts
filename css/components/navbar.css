@@ -1,0 +1,246 @@
+/* ================================================
+   NAVBAR — PrimeCuts Barbershop
+================================================ */
+
+.navbar {
+  position:         fixed;
+  top:              0;
+  left:             0;
+  right:            0;
+  z-index:          var(--z-sticky);
+  padding:          var(--space-5) 0;
+  border-bottom:   1px solid var(--clr-border);
+  /* Começa transparente e muda com JS ao rolar */
+  background-color: transparent;
+  transition:       background-color var(--transition-slow),
+                    padding          var(--transition-slow),
+                    box-shadow       var(--transition-slow);
+}
+
+
+/* Estado quando o usuário rola a página (classe adicionada via JS) */
+.navbar.is-scrolled {
+  background-color: rgba(13, 13, 13, 0.95);
+  backdrop-filter:  blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding:          var(--space-3) 0;
+  box-shadow:       0 1px 0 var(--clr-border);
+}
+
+/* ------------------------------------------------
+   CONTAINER INTERNO
+------------------------------------------------ */
+.navbar__container {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  gap:             var(--space-8);
+}
+
+/* ------------------------------------------------
+   LOGO
+------------------------------------------------ */
+.navbar__logo {
+  flex-shrink: 0;
+  position: relative;
+  transition:  opacity var(--transition-base);
+}
+
+.navbar__logo:hover {
+  opacity: 0.85;
+}
+
+/* Fundo atrás da logo (ornamentação / destaque) */
+.navbar__logo-bg {
+  /* removido: fundo atrás da logo */
+  display: none;
+}
+
+/* “PC” como logotipo tipográfico (substitui imagem) */
+.navbar__logo-text {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: 140px;
+  font-family: var(--font-heading);
+  font-weight: var(--fw-black);
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+  color: var(--clr-gold);
+}
+
+.navbar__logo img {
+  height:    36px;
+  width:     auto;
+  display: none;
+}
+
+/* ------------------------------------------------
+   LINKS
+------------------------------------------------ */
+.navbar__links {
+  display:     flex;
+  align-items: center;
+  gap:         var(--space-10);
+  /* Empurra os links pro centro */
+  margin:      0 auto;
+}
+
+.navbar__link {
+  position:       relative;
+  font-size:      var(--fs-sm);
+  font-weight:    var(--fw-medium);
+  color:          var(--clr-text-secondary);
+  letter-spacing: 0.02em;
+  transition:     color var(--transition-base);
+  padding-bottom: var(--space-1);
+}
+
+/* Underline animado */
+.navbar__link::after {
+  content:          '';
+  position:         absolute;
+  bottom:           0;
+  left:             0;
+  width:            0;
+  height:           1px;
+  background-color: var(--clr-gold);
+  transition:       width var(--transition-base);
+}
+
+.navbar__link:hover {
+  color: var(--clr-text-primary);
+}
+
+.navbar__link:hover::after {
+  width: 100%;
+}
+
+/* Link ativo */
+.navbar__link.is-active {
+  color: var(--clr-text-primary);
+}
+
+.navbar__link.is-active::after {
+  width: 100%;
+}
+
+/* ------------------------------------------------
+   CTA
+------------------------------------------------ */
+.navbar__cta {
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------------
+   HAMBURGUER (mobile)
+------------------------------------------------ */
+.navbar__hamburger {
+  display:        none;
+  flex-direction: column;
+  justify-content: center;
+  gap:            5px;
+  width:          40px;
+  height:         40px;
+  padding:        var(--space-2);
+  background:     transparent;
+  border:         none;
+
+  /* Foco acessível */
+  border-radius:  var(--radius-sm);
+  outline-offset: 3px;
+}
+
+.navbar__hamburger:focus-visible {
+  outline: 2px solid var(--clr-gold);
+}
+
+.navbar__hamburger span {
+  display:          block;
+  width:            100%;
+  height:           2px;
+  background-color: var(--clr-text-primary);
+  border-radius:    var(--radius-full);
+  transition:       transform  var(--transition-base),
+                    opacity    var(--transition-base),
+                    width      var(--transition-base);
+  transform-origin: center;
+}
+
+/* Animação hamburguer → X */
+.navbar__hamburger.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__hamburger.is-open span:nth-child(2) {
+  opacity:   0;
+  transform: scaleX(0);
+}
+
+.navbar__hamburger.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ------------------------------------------------
+   MENU MOBILE
+------------------------------------------------ */
+.navbar__mobile {
+  display:          none;
+  position:         fixed;
+  inset:            0;
+  z-index:          var(--z-dropdown);
+  /* Começa fora da tela */
+  transform:        translateX(100%);
+  background-color: var(--clr-bg-secondary);
+  padding:          6rem var(--space-8) var(--space-8);
+  transition:       transform var(--transition-slow);
+  overflow-y:       auto;
+}
+
+.navbar__mobile.is-open {
+  transform: translateX(0);
+}
+
+.navbar__mobile ul {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--space-6);
+}
+
+.navbar__mobile .navbar__link {
+  font-size: var(--fs-xl);
+}
+
+.navbar__mobile .btn {
+  width:      100%;
+  margin-top: var(--space-4);
+  padding:    var(--space-4);
+  font-size:  var(--fs-base);
+}
+
+/* ------------------------------------------------
+   RESPONSIVIDADE
+------------------------------------------------ */
+@media (max-width: 768px) {
+  .navbar__links,
+  .navbar__cta {
+    display: none;
+  }
+
+  .navbar__hamburger,
+  .navbar__mobile {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__logo-text {
+    height: 28px;
+    width: 110px;
+    font-size: 1.75rem;
+  }
+}
+
