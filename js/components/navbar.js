@@ -66,6 +66,35 @@ document.addEventListener('keydown', (e) => {
 })
 
 /* ------------------------------------------------
+   Scroll suave — links internos (#)
+------------------------------------------------ */
+function initSmoothAnchorScroll() {
+  const internalLinks = document.querySelectorAll('a[href^="#"]')
+
+  internalLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href')
+      if (!href || href === '#') return
+
+      // Ex.: "#servicos"
+      const targetId = href.slice(1)
+      const targetEl = document.getElementById(targetId)
+      if (!targetEl) return
+
+      e.preventDefault()
+
+      // scroll leve e consistente
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
+
+      // Se o menu mobile estiver aberto, ele já vai ser fechado pelo
+      // listener existente acima. Não precisamos interferir aqui.
+    })
+  })
+}
+
+initSmoothAnchorScroll()
+
+/* ------------------------------------------------
    Active link — destaca link da seção visível
 ------------------------------------------------ */
 const sections = document.querySelectorAll('section[id]')
@@ -89,4 +118,5 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions)
 
 sections.forEach((section) => observer.observe(section))
+
 

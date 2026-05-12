@@ -106,6 +106,15 @@
   padding-bottom: var(--space-1);
 }
 
+/* Remover efeito de "clique" (active) para manter apenas o hover */
+.navbar__link:focus,
+.navbar__link:focus-visible {
+  color: var(--clr-text-secondary);
+}
+
+
+
+
 /* Underline animado */
 .navbar__link::after {
   content:          '';
@@ -135,13 +144,16 @@
 }
 
 /* Link ativo */
+/* is-active sobrescreve apenas para acessibilidade/estado via JS;
+   aqui removemos o destaque persistente para ficar somente no hover */
 .navbar__link.is-active {
-  color: var(--clr-text-primary);
+  color: var(--clr-text-secondary);
 }
 
 .navbar__link.is-active::after {
-  width: 100%;
+  width: 0;
 }
+
 
 /* ------------------------------------------------
    CTA
