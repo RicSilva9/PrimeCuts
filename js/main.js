@@ -1,18 +1,9 @@
-/* ================================================
-   MAIN.JS — PrimeCuts Barbershop
-================================================ */
-
 import './components/navbar.js'
 
-/* ------------------------------------------------
-   Hero — animação de entrada
------------------------------------------------- */
 
-// Observação: este arquivo usa imports (module). O index.html deve carregar como <script type="module">.
-// Se por algum motivo for carregado em contexto incorreto, falhamos cedo para facilitar o debug.
-if (typeof document === 'undefined') {
-  throw new Error('PrimeCuts: main.js precisa de um contexto DOM.');
-}
+// Requer DOM (carregado como module).
+if (typeof document === 'undefined')
+  throw new Error('PrimeCuts: main.js precisa de um contexto DOM.')
 
 function initHero() {
   const heroText = document.querySelector('.hero__text')
@@ -29,9 +20,6 @@ function initHero() {
   })
 }
 
-/* ------------------------------------------------
-   Init
------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
   initHero()
 })

@@ -220,10 +220,14 @@ p {
 }
 
 .btn--gold:hover {
-  background-color: var(--clr-gold-dark);
-  border-color:     var(--clr-gold-dark);
-  box-shadow:       var(--shadow-gold);
+  /* mais claro e com “glow” */
+  background-color: var(--clr-gold-light);
+  border-color:     rgba(255, 208, 122, 0.95);
+  box-shadow:       0 0 0 2px rgba(255, 208, 122, 0.18),
+                     0 8px 28px rgba(255, 208, 122, 0.18),
+                     0 0 26px rgba(245, 166, 35, 0.22);
 }
+
 
 /* Outline branco */
 .btn--outline {
@@ -245,8 +249,10 @@ p {
 
 .btn--outline-gold:hover {
   background-color: var(--clr-gold-muted);
-  box-shadow:       var(--shadow-gold);
+  box-shadow:       0 0 0 2px rgba(255, 208, 122, 0.16),
+                     0 0 22px rgba(245, 166, 35, 0.22);
 }
+
 
 /* Tamanho grande */
 .btn--lg {

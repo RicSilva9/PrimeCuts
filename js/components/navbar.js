@@ -50,6 +50,11 @@ function toggleMenu() {
 
 hamburger.addEventListener('click', toggleMenu)
 
+const closeBtn = document.querySelector('.navbar__mobile-close')
+if (closeBtn) {
+  closeBtn.addEventListener('click', closeMenu)
+}
+
 // Fecha ao clicar em qualquer link do menu mobile
 mobileLinks.forEach((link) => {
   link.addEventListener('click', closeMenu)
@@ -84,3 +89,4 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions)
 
 sections.forEach((section) => observer.observe(section))
+

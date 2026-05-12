@@ -157,11 +157,8 @@
       }
     </script>
 
-    <!-- =============================================
-       ESTILOS
-  ============================================== -->
-    <link rel="stylesheet" href="/css/utils/reset.css" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="./css/utils/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <!-- =============================================
@@ -187,10 +184,10 @@
           <li><a href="#contato" class="navbar__link">Contato</a></li>
         </ul>
 
-        <!-- CTA -->
-        <a href="#agendamento" class="btn btn--gold navbar__cta">
-          Agendar Agora
-        </a>
+        <!-- CTA desktop -->
+        <div class="navbar__cta">
+          <a href="#agendamento" class="btn btn--gold">Agendar horário</a>
+        </div>
 
         <!-- Hamburguer (mobile) -->
         <button
@@ -212,12 +209,27 @@
         aria-hidden="true"
         role="dialog"
       >
+        <div class="navbar__mobile-top">
+          <button
+            type="button"
+            class="navbar__mobile-close"
+            aria-label="Fechar menu"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
         <ul role="list">
           <li><a href="#servicos" class="navbar__link">Serviços</a></li>
           <li><a href="#sobre" class="navbar__link">Sobre</a></li>
-          <li><a href="#contato" class="navbar__link">Contato</a></li>
           <li>
-            <a href="#agendamento" class="btn btn--gold">Agendar Agora</a>
+            <a
+              href="#agendamento"
+              class="btn btn--gold navbar__mobile-contact"
+              aria-label="Contato"
+            >
+              Contato
+            </a>
           </li>
         </ul>
       </div>
@@ -469,9 +481,6 @@
       </section>
     </main>
 
-    <!-- =============================================
-       FOOTER
-  ============================================== -->
     <footer class="footer" id="contato" role="contentinfo">
       <div class="footer__top container">
         <!-- Coluna 1 — Brand -->
@@ -568,14 +577,6 @@
       </div>
     </footer>
 
-    <!-- =============================================
-       SCRIPTS
-  ============================================== -->
-    <!--
-    IMPORTANTE:
-    - js/main.js usa import (module). Para funcionar em navegadores sem bundler,
-      carregamos como módulo.
-  -->
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>
